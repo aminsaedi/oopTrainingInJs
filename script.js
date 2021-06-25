@@ -22,3 +22,7 @@ function Circle(radius) {
     console.log("draw");
   };
 }
+
+const anotherCircle = new Circle(1);
+
+anotherCircle.draw();
