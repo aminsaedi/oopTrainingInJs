@@ -15,12 +15,19 @@ function Circle(radius) {
 }
 extend(Circle, Shape);
 
+Circle.prototype.duplicate = function () {
+  console.log("circle duplicate");
+};
+
 function Square() {}
 extend(Square, Shape);
 
 Square.prototype.duplicate = function () {
-  Shape.prototype.duplicate.call(this);
   console.log("square duplicate");
 };
 
-const sq = new Square();
+const shapes = [new Square(), new Circle()];
+
+for (const shape of shapes) {
+  shape.duplicate();
+}
