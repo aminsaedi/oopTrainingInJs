@@ -18,4 +18,9 @@ extend(Circle, Shape);
 function Square() {}
 extend(Square, Shape);
 
+Square.prototype.duplicate = function () {
+  Shape.prototype.duplicate.call(this);
+  console.log("square duplicate");
+};
+
 const sq = new Square();
