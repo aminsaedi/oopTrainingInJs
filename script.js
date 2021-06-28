@@ -1,18 +1,23 @@
-const _radius = new WeakMap();
-const _move = new WeakMap();
-
-class Circle {
-  constructor(radius) {
-    _radius.set(this, radius);
-    _move.set(this, () => console.log("move"));
+class Shape {
+  constructor(color) {
+    this.color = color;
   }
-
-  draw() {
-    console.log(`drawing a circle with radius : ${_radius.get(this)}`);
-    _move.get(this)();
+  move() {
+    console.log("move");
   }
 }
 
-const c = new Circle(5);
+class Circle extends Shape {
+  constructor(color, radius) {
+    super(color);
+    this.radius = radius;
+  }
+  move() {
+    super.move();
+    console.log("circle move");
+  }
+}
+
+const c = new Circle("red", 5);
 
 console.log(c);
